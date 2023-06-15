@@ -1,0 +1,23 @@
+import pandas as pd
+import random
+
+
+
+
+qa_data = pd.read_excel("/content/drive/MyDrive/qa/題庫.xlsx",header=None)
+qa_data.iloc[0][0]
+len(qa_data)
+q_count = 3
+li = range(0,len(qa_data))
+q_index = random.sample(li,q_count)
+for i in range(q_count):
+  print(qa_data.iloc[q_index[i]][0])
+  q_item = "一、"+qa_data.iloc[q_index[i]][1] , "二、"+qa_data.iloc[q_index[i]][2] , "三、"+qa_data.iloc[q_index[i]][3]
+  print(q_item)
+
+  a =input("請輸入答案  ")
+  if a == qa_data.iloc[q_index[i]][5]:
+    print("答對")
+  else:
+    print("答錯"+ "正瘸答案是" + qa_data.iloc[q_index[i]][5])
+
